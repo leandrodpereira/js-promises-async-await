@@ -188,11 +188,12 @@ textarea {
 .main-imagem {
     border-radius: 8px;
     height: 100%;
-    object-fit: cover;;
+    width: 100%;
+    object-fit: cover;
 }
 
 .container-imagem {
-    height: 368;
+    height: 368px;    
     padding: 24px 16px;
     border-radius: 8px;
     background-color: var(--secondary-color);
