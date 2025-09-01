@@ -69,3 +69,21 @@ inputTags.addEventListener('keypress', (evento) => {
         }
     }
 });
+
+//Exemplo de Delegação de Eventos
+listaTags.addEventListener('click', (evento) => {
+    if (evento.target.classList.contains('remover-tag')) {
+        const tagRemover = evento.target.parentElement;
+        listaTags.removeChild(tagRemover);
+    }
+});
+
+const tagsDisponiveis = ["Front-end", "Back-end", "Full Stack", "Design", "DevOps"];
+
+async function verificaTagsDisponiveis(tagTexto) {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(tagsDisponiveis.includes(tagTexto));
+        }, 1000);
+    });
+}
