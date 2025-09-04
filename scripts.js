@@ -61,8 +61,7 @@ inputTags.addEventListener('keypress', async (evento) => {
     if (evento.key === 'Enter') {
         evento.preventDefault();
         const tagTexto = inputTags.value.trim();
-        if (tagTexto !== "" && await verificaTagsDisponiveis(tagTexto)) {
-            console.log(verificaTagsDisponiveis(tagTexto));
+        if (tagTexto !== "" && await verificaTagsDisponiveis(tagTexto)) {            
             const tagNova = document.createElement("li");
             tagNova.innerHTML = `<p>${tagTexto}</p><img src="./img/close-black.svg" class="remover-tag">`;
             listaTags.appendChild(tagNova);
