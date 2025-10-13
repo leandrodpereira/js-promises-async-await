@@ -61,11 +61,22 @@ inputTags.addEventListener('keypress', async (evento) => {
     if (evento.key === 'Enter') {
         evento.preventDefault();
         const tagTexto = inputTags.value.trim();
-        if (tagTexto !== "" && await verificaTagsDisponiveis(tagTexto)) {            
-            const tagNova = document.createElement("li");
-            tagNova.innerHTML = `<p>${tagTexto}</p><img src="./img/close-black.svg" class="remover-tag">`;
-            listaTags.appendChild(tagNova);
-            inputTags.value = "";
+        if (tagTexto !== "") {
+            try {
+                const tagExiste = await verificaTagsDisponiveis(tagTexto);  
+                if (tagExiste) {         
+                const tagNova = document.createElement("li");
+                tagNova.innerHTML = `<p>${tagTexto}</p><img src="./img/close-black.svg" class="remover-tag">`;
+                listaTags.appendChild(tagNova);
+                inputTags.value = "";   
+                } else {
+                    alert("Tag não disponível. Tente outra.");
+                }
+            } catch (error) {
+                console.error("Erro ao verificar a tag" + error);
+                alert("Erro ao verificar a tag. Tente novamente.");
+            }
+            
         }
     }
 });
