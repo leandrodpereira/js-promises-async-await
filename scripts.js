@@ -98,3 +98,17 @@ async function verificaTagsDisponiveis(tagTexto) {
         }, 1000);
     });
 }
+
+const botaoPublicar = document.querySelector(".botao-publicar");
+
+botaoPublicar.addEventListener('click', async(evento) => {
+    evento.preventDefault();
+    const nomeDoProjeto = document.getElementById("nome").value;
+    const descricaoDoProjeto = document.getElementById("descricao").value;
+    const tagsProjeto = Array.from(listaTags.querySelectorAll("p")).map((tag) => tag.textContent);
+
+
+    console.log("Nome do Projeto:", nomeDoProjeto);
+    console.log("Descrição do Projeto:", descricaoDoProjeto);
+    console.log("Tags do Projeto:", tagsProjeto);
+})
