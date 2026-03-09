@@ -111,4 +111,28 @@ botaoPublicar.addEventListener('click', async(evento) => {
     console.log("Nome do Projeto:", nomeDoProjeto);
     console.log("Descrição do Projeto:", descricaoDoProjeto);
     console.log("Tags do Projeto:", tagsProjeto);
+
+    try {
+        const msg = await publicarProjeto(nomeDoProjeto, descricaoDoProjeto, tagsProjeto);
+        console.log(msg);
+        alert(msg);
+    } catch (error) {
+        console.log(error);
+        alert(error);
+    }
 })
+
+//Simulando o envio dos dados para um Backend
+async function publicarProjeto(nomeDoProjeto, descricaoDoProjeto, tagsProjeto) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const deuCerto = Math.random() > 0.5;
+           
+            if (deuCerto) {
+                resolve("Projeto publicado com sucesso.")
+            } else {
+                reject("Erro ao publicar projeto.")
+            }
+        }, 2000)
+    })    
+}
