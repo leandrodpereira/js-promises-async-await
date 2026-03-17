@@ -112,6 +112,7 @@ textarea {
 
 .lista-tags li {
     display: flex;
+    align-items: center;
     background-color: var(--secondary-color);
     color: var(--background-color);
     gap: 10px;
@@ -121,6 +122,8 @@ textarea {
 
 .lista-tags {
     display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
 }
 
 .container-botoes {
@@ -137,6 +140,7 @@ textarea {
     font-size: 18px;
     font-weight: 500;
     font-family: var(--font-family);
+    cursor: pointer;
 }
 
 .botao-descartar {
@@ -197,6 +201,7 @@ textarea {
     padding: 24px 16px;
     border-radius: 8px;
     background-color: var(--secondary-color);
+    object-fit: contain;
 }
 
 .container-upload-imagem button {
@@ -212,6 +217,7 @@ textarea {
     font-weight: 600;
     font-family: var(--font-family);
     position: relative;
+    cursor: pointer;
 }
 
 .container-upload-imagem button::after {

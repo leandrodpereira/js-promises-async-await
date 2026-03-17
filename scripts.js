@@ -101,6 +101,22 @@ async function verificaTagsDisponiveis(tagTexto) {
 
 const botaoPublicar = document.querySelector(".botao-publicar");
 
+//Simulando o envio dos dados para um Backend
+async function publicarProjeto(nomeDoProjeto, descricaoDoProjeto, tagsProjeto) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            const deuCerto = Math.random() > 0.5;
+           
+            if (deuCerto) {
+                resolve("Projeto publicado com sucesso.")
+            } else {
+                reject("Erro ao publicar projeto.")
+            }
+        }, 2000)
+    })    
+}
+
+
 botaoPublicar.addEventListener('click', async(evento) => {
     evento.preventDefault();
     const nomeDoProjeto = document.getElementById("nome").value;
@@ -122,17 +138,14 @@ botaoPublicar.addEventListener('click', async(evento) => {
     }
 })
 
-//Simulando o envio dos dados para um Backend
-async function publicarProjeto(nomeDoProjeto, descricaoDoProjeto, tagsProjeto) {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            const deuCerto = Math.random() > 0.5;
-           
-            if (deuCerto) {
-                resolve("Projeto publicado com sucesso.")
-            } else {
-                reject("Erro ao publicar projeto.")
-            }
-        }, 2000)
-    })    
-}
+const botaoLimpar = document.querySelector(".botao-descartar");
+botaoLimpar.addEventListener('click', (evento) => {
+    evento.preventDefault();
+    
+    const formulario = document.querySelector("form");
+    formulario.reset();
+
+    imagemPrincial.src = "./img/imagem1.png";
+    nomeDaImagem.textContent = "image_projeto.png";
+    listaTags.innerHTML = "";
+})
